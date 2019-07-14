@@ -1,4 +1,6 @@
-# HardstyleSets.com
+# [HardstyleSets.com](http://www.hardstylesets.com)
+
+A website containing links to hardstyle live sets searchable by artist, festival or year.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
 
