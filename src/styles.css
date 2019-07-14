@@ -15,14 +15,21 @@ body {
 }
 
 .container {
-  padding: 16px;
+  padding: 9px 16px 16px 16px;
   width: 100%;
-  /* display: flex;
-  flex-direction: row; */
+  display: flex;
 }
 
-router-outlet + *  {
-  padding: 0 16px;
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+app-set-list {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
 }
 
 /* Text */
@@ -55,37 +62,6 @@ a:hover {
   opacity: 0.8;
 }
 
-/* Input */
-
-input {
-  font-size: 14px;
-  border-radius: 2px;
-  padding: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #BDBDBD;
-}
-
-label {
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 4px;
-  display: block;
-  text-transform: uppercase;
-}
-
-/* Button */
-/* .button, button {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 16px;
-  border-radius: 2px;
-  font-size: 14px;
-  cursor: pointer;
-  background-color: #1976d2;
-  color: white;
-  border: none;
-} */
-
 .button:hover, button:hover {
   opacity: 0.8;
   font-weight: normal;
@@ -96,24 +72,12 @@ label {
   cursor: auto;
 }
 
-/* Fancy Button */
-
-.fancy-button {
-  background-color: white;
-  color: #1976d2;
-}
-
-.fancy-button i.material-icons {
-  color: #1976d2;
-  padding-right: 4px;
-}
-
 /* Top Bar */
 
-app-top-bar {
+app-top-bar, app-footer {
   width: 100%;
   height: 68px;
-  background-color: #1976d2;
+  background-color: #FF9800;
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -126,28 +90,27 @@ app-top-bar h1 {
   margin: 0;
 }
 
-/* Checkout Cart, Shipping Prices */
+app-footer {
+  position: absolute;
+  bottom: 0;
+}
 
-.cart-item, .shipping-item {
-  width: 100%;
-  min-width: 400px;
-  max-width: 450px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 16px 32px;
-  margin-bottom: 8px;
-  border-radius: 2px;
-  background-color: #EEEEEE;
+app-footer h2, h3 {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* header and set-list */
+.wrap {
+  padding-bottom: 68px; /* for footer */
 }
 
 table {
-  width: 100%
+  width: 100%;
+}
+
+td.mat-cell {
+  padding: 4px;
 }
 
 
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

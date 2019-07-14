@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { sets } from '../sets';
+import { b2sYoutube } from '../b2sYoutube';
+import { qdanceYoutube } from '../qdanceYoutube';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-set-list',
@@ -10,15 +12,21 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class SetListComponent implements OnInit {
   displayedColumns: string[] = ['artist', 'festival', 'year', 'url'];
-  dataSource = new MatTableDataSource(sets);
+  sets = [...b2sYoutube, ...qdanceYoutube];
+  dataSource = new MatTableDataSource(this.sets);
   originalDataSource = this.dataSource;
-  sets = sets;
   tags = [];
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
+    const sortState: MatSort = {active: 'year', direction: 'desc'};
+    this.sort.active = sortState.active;
+    this.sort.direction = sortState.direction;
+    this.sort.sortChange.emit(sortState);
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   onClickMe(url) {
@@ -26,19 +34,18 @@ export class SetListComponent implements OnInit {
   }
 
   doFilterTags() {
-    console.log('Filtering tags');
     let temp = this.originalDataSource;
     if (this.tags.length === 0) {
-      this.dataSource = new MatTableDataSource(sets);
+      this.dataSource = new MatTableDataSource(this.sets);
     } else {
       this.tags.forEach(element => {
-        console.log('Filtering: ', element.trim().toLocaleLowerCase());
         temp.filter = element.trim().toLocaleLowerCase();
         temp = new MatTableDataSource(temp.filteredData);
       });
       this.dataSource = temp;
     }
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   doAddTag(tag) {
@@ -51,13 +58,7 @@ export class SetListComponent implements OnInit {
 
   removeTag(tag: string) {
     this.tags = this.tags.filter(item => item !== tag);
-    console.log(this.tags.length);
     this.doFilterTags();
   }
 }
 
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

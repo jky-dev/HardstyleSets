@@ -9,8 +9,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SetListComponent } from './set-list/set-list.component';
+import { FooterComponent } from './footer/footer.component';
 import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatPaginatorModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatPaginatorModule,
     FlexLayoutModule,
     RouterModule.forRoot([
       { path: '', component: SetListComponent },
@@ -32,20 +34,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   exports: [
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
     SetListComponent,
+    FooterComponent,
   ],
   bootstrap: [ AppComponent ],
 })
 export class AppModule { }
 
 
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
