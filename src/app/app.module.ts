@@ -10,8 +10,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SetListComponent } from './set-list/set-list.component';
 import { FooterComponent } from './footer/footer.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatPaginatorModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({

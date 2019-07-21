@@ -21,10 +21,9 @@ export class SetListComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
-    const sortState: MatSort = {active: 'year', direction: 'desc'};
-    this.sort.active = sortState.active;
-    this.sort.direction = sortState.direction;
-    this.sort.sortChange.emit(sortState);
+    this.sort.active = 'year';
+    this.sort.direction = 'desc';
+    this.sort.sortChange.emit(this.sort);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
