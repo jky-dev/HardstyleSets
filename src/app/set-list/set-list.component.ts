@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { b2sYoutube } from '../b2sYoutube';
-import { qdanceYoutube } from '../qdanceYoutube';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material';
+import { musicSets } from '../musicSets';
 
 @Component({
   selector: 'app-set-list',
@@ -11,8 +10,8 @@ import { MatPaginator } from '@angular/material';
   styleUrls: ['./set-list.component.css']
 })
 export class SetListComponent implements OnInit {
-  displayedColumns: string[] = ['artist', 'festival', 'year', 'url'];
-  sets = [...b2sYoutube, ...qdanceYoutube];
+  displayedColumns: string[] = ['artist', 'festival', 'year'];
+  sets = musicSets;
   dataSource = new MatTableDataSource(this.sets);
   originalDataSource = this.dataSource;
   tags = [];
@@ -21,15 +20,12 @@ export class SetListComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
-    this.sort.active = 'year';
-    this.sort.direction = 'desc';
-    this.sort.sortChange.emit(this.sort);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
-  onClickMe(url) {
-    window.open(url, '_blank');
+  onClickMe(row) {
+    window.open(row.url, '_blank');
   }
 
   doFilterTags() {

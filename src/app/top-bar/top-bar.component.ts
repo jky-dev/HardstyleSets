@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { musicSets } from '../musicSets';
 
 @Component({
   selector: 'app-top-bar',
