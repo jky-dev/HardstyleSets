@@ -10,7 +10,14 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SetListComponent } from './set-list/set-list.component';
 import { FooterComponent } from './footer/footer.component';
-import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatPaginatorModule, MatTableModule } from '@angular/material';
+import { MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatButtonModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatMenuModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -26,6 +33,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatButtonModule,
     MatPaginatorModule,
+    MatToolbarModule,
+    MatMenuModule,
     FlexLayoutModule,
     RouterModule.forRoot([
       { path: '', component: SetListComponent },

@@ -1,6 +1,11 @@
-<a [routerLink]="['/']">
-  <h1>HardstyleSets.com</h1>
-</a>
+<mat-toolbar>
+  <span>Hardstyle Sets</span>
+  <button mat-button [matMenuTriggerFor]="festival">Festivals</button>
+
+  <mat-menu #festival="matMenu">
+    <button mat-menu-item *ngFor="let festival of festivals">{{festival}}</button>
+  </mat-menu>
+</mat-toolbar>
 
 <!--
 Copyright Google LLC. All Rights Reserved.
