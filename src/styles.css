@@ -14,47 +14,20 @@ body {
   margin: 0;
 }
 
-.container {
-  padding: 9px 16px 16px 16px;
-  width: 100%;
-  display: flex;
+article {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
 }
 
-.page-container {
-  position: relative;
-  min-height: 100vh;
-}
-
-app-set-list {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 100%;
-}
-
-/* Text */
-
-h1 {
-  font-size: 32px;
-}
-
-h2 {
-  font-size: 20px;
-}
-
-h1, h2 {
-  font-weight: lighter;
-}
-
-p {
-  font-size: 14px;
+article h1 {
+  text-align: center;
 }
 
 /* Hyperlink */
 
 a {
   cursor: pointer;
-  color: #1976d2;
   text-decoration: none;
 }
 
@@ -74,26 +47,16 @@ a:hover {
 
 /* Top Bar */
 
-app-top-bar, app-footer {
+.topbar, app-footer {
   width: 100%;
   height: 68px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 }
+
 app-footer {
   padding: 0px 16px;
-}
-
-app-top-bar h1 {
-  color: white;
-  margin: 0;
-}
-
-app-footer {
-  position: absolute;
-  bottom: 0;
 }
 
 app-footer h2, h3 {
@@ -101,17 +64,6 @@ app-footer h2, h3 {
   text-align: center;
 }
 
-/* header and set-list */
-.wrap {
-  padding-bottom: 68px; /* for footer */
+.topbar button, a {
+  margin: 0px 5px;
 }
-
-table {
-  width: 100%;
-}
-
-td.mat-cell {
-  padding: 4px;
-}
-
-
