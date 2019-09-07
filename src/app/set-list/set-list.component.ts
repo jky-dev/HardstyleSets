@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { musicSets } from '../musicSets';
 
 @Component({
@@ -43,12 +44,14 @@ export class SetListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  doAddTag(tag) {
-    if (this.tags.includes(tag)) {
+  doAddTag(event: MatChipInputEvent) {
+    const tag = event.value;
+    if (this.tags.includes(tag) || tag === '') {
       return;
     }
     this.tags.push(tag);
     this.doFilterTags();
+    event.input.value = '';
   }
 
   removeTag(tag: string) {

@@ -3,15 +3,18 @@
     border-top-width=0px>
     <mat-form-field fxFlex="100%"
     border-top-width=0px>
-      <input matInput type="text"
-      (keyup.enter)="doAddTag($event.target.value)"
-      placeholder="Search">
+      <mat-chip-list #tagList>
+        <mat-chip *ngFor="let tag of tags"
+          [selectable]="false"
+          (removed)="removeTag(tag)">{{tag}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Filter..."
+          [matChipInputFor]="tagList"
+          (matChipInputTokenEnd)="doAddTag($event)">
+      </mat-chip-list>
     </mat-form-field>
   </div>
-
-  <button mat-button *ngFor="let tag of tags">{{tag}}
-    <mat-icon (click)="removeTag(tag)">close</mat-icon>
-  </button>
 
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
 

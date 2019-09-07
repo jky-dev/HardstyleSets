@@ -17,7 +17,8 @@ import { MatFormFieldModule,
   MatPaginatorModule,
   MatTableModule,
   MatToolbarModule,
-  MatMenuModule } from '@angular/material';
+  MatMenuModule,
+  MatChipsModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatPaginatorModule,
     MatToolbarModule,
     MatMenuModule,
+    MatChipsModule,
     FlexLayoutModule,
     RouterModule.forRoot([
       { path: '', component: SetListComponent },
