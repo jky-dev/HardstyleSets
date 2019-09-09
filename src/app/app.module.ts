@@ -18,7 +18,8 @@ import { MatFormFieldModule,
   MatTableModule,
   MatToolbarModule,
   MatMenuModule,
-  MatChipsModule } from '@angular/material';
+  MatChipsModule,
+  MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatMenuModule,
     MatChipsModule,
+    MatSelectModule,
     FlexLayoutModule,
     RouterModule.forRoot([
       { path: '', component: SetListComponent },

@@ -1,10 +1,5 @@
 <mat-toolbar class="topbar">
   <a class="mat-heading-4" [routerLink]="['/']" routerLinkActive="router-link-active">Hardstyle Sets</a>
-  <button mat-button [matMenuTriggerFor]="festival">FESTIVALS</button>
-
-  <mat-menu #festival="matMenu">
-    <button mat-menu-item *ngFor="let festival of festivals" (click)="selected(festival)">{{festival}}</button>
-  </mat-menu>
 </mat-toolbar>
 <router-outlet></router-outlet>
 

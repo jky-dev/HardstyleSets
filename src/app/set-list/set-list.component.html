@@ -1,19 +1,38 @@
 <article class="all-sets">
-  <h1>All Sets</h1>
-  <div fxLayout fxLayoutAlign="left left"
-    border-top-width=0px>
-    <mat-form-field fxFlex="100%"
-    border-top-width=0px>
+  <div fxLayout>
+    <mat-form-field fxFlex="100%">
       <mat-chip-list #tagList>
         <mat-chip *ngFor="let tag of tags"
           [selectable]="false"
           (removed)="removeTag(tag)">{{tag}}
           <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
-        <input placeholder="Filter..."
+        <input placeholder="Search..."
           [matChipInputFor]="tagList"
-          (matChipInputTokenEnd)="doAddTag($event)">
+          (matChipInputTokenEnd)="onMatChipInputEvent($event)">
       </mat-chip-list>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between center">
+    <mat-form-field fxFlex="50%">
+      <mat-label>Search by festival</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let festival of festivals"
+        [value]="festival"
+        (onSelectionChange)="onSelectedChanged($event)">
+          {{festival}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex="50%">
+      <mat-label>Search by Artist</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let artist of artists"
+        [value]="artist"
+        (onSelectionChange)="onSelectedChanged($event)">
+          {{artist}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
 
